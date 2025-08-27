@@ -1,0 +1,77 @@
+/* Fondo general gris */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e0e0e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenedor centrado */
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+/* Formulario */
+.form {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Título */
+.form h2 {
+  text-align: center;
+  color: #d81b60; /* Rosa fuerte */
+  margin-bottom: 20px;
+}
+
+/* Labels e inputs */
+.form label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #ad1457; /* Rosa oscuro */
+}
+
+.form input {
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #f48fb1;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Botón */
+.form button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #ec407a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.form button:hover {
+  background-color: #d81b60;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .form {
+    padding: 15px;
+  }
+
+  .form input, .form button {
+    font-size: 14px;
+  }
+}
