@@ -12,10 +12,23 @@ function main(){
     
     console.log(nombre);
     console.log(nombreByID); 
+    
+    //Subscripciones a eventos
+    var buttonSendInfo = document.querySelector('#sendInfo');
+    if(buttonSendInfo){ //Validar que existe el botón enviar 
+        buttonSendInfo.addEventListener('click', sendInfo)
+    }
 }
 
-function send(){
+function sendInfo(){
     console.log('click');
+    //Validar la información de todo el formulario
+    var form = document.querySelector('.form');
+    console.log(form); 
+    if(form){
+        var formInputs = document.querySelectorAll("input"); 
+        console.log(formInputs);
+    }
 }
 
 document.addEventListener("DOMContentLoaded",main);
