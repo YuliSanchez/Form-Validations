@@ -65,6 +65,9 @@ body {
   background-color: #d81b60;
 }
 
+.invalid-input{
+  border: red solid 3px !important;
+}
 /* Responsivo */
 @media (max-width: 480px) {
   .form {
