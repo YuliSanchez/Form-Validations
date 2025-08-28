@@ -53,6 +53,14 @@ function sendInfo(){
             var isValidApellido = validator.validateProperName(valueApellido)
             setElementValidationClass(inputApellido, isValidApellido); 
         }
+
+        //Validar Email 
+        var inputEmail = form.querySelector('input[name=email]'); 
+        if(inputEmail){
+            var valueEmail = inputEmail.value;
+            var isValidEmail = validator.validateEmail(valueEmail)
+            setElementValidationClass(inputEmail, isValidEmail); 
+        }
     }
 }
 
