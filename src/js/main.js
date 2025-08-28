@@ -3,6 +3,9 @@ var miCadena2= 'Mi cadena con comillas'
 console.log(miCadena);
 console.log(document); //DOM Document Object Model
 console.log(window);
+import { Validator} from "./common/validations.js";
+
+var validator =  new Validator();
 
 function main(){
     //Subscripciones a eventos
@@ -10,6 +13,10 @@ function main(){
     if(buttonSendInfo){ //Validar que existe el botón enviar 
         buttonSendInfo.addEventListener('click', sendInfo)
     }
+}
+
+function setElementValidationClass(element, isValid){
+    isValid === true ? element.classList.remove('invalid-input') : element.classList.add('invalid-input');
 }
 
 function sendInfo(){
@@ -33,20 +40,18 @@ function sendInfo(){
         //Validar los inputs
         //Validar Nombre: Debe tener por lo menos 3 caracteres y y no contener caracteres especiales
         var inputName = form.querySelector('input[name=nombre]'); 
-        var isValidName = true; 
         if(inputName){
             var valueName = inputName.value;
-            if(valueName.length < 3)
-                isValidName = false; 
-            var containsSpecialChars = /[^a-zA-Z\s]/.test(valueName);
-            if(containsSpecialChars)
-                isValidName = false;
+            var isValidName = validator.validateProperName(valueName);
+            setElementValidationClass(inputName, isValidName)
+        }
 
-            if(!isValidName){
-                inputName.classList.add('invalid-input'); 
-            }else{
-                inputName.classList.remove('invalid-input')
-            }
+        //Validar Apellido
+        var inputApellido = form.querySelector('input[name=apellido]'); 
+        if(inputApellido){
+            var valueApellido = inputApellido.value;
+            var isValidApellido = validator.validateProperName(valueApellido)
+            setElementValidationClass(inputApellido, isValidApellido); 
         }
     }
 }
