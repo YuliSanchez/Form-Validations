@@ -61,6 +61,23 @@ function sendInfo(){
             var isValidEmail = validator.validateEmail(valueEmail)
             setElementValidationClass(inputEmail, isValidEmail); 
         }
+
+        //Validar Curp
+        var inputCurp = form.querySelector('input[name=curp]'); 
+        if(inputCurp){
+            var valueCurp = inputCurp.value;
+            var isValidCurp = validator.validateCURP(valueCurp);
+            console.log(isValidCurp);
+            setElementValidationClass(inputCurp, isValidCurp); 
+        }
+
+        //Validar RFC
+        var inputRFC = form.querySelector('input[name=rfc]'); 
+        if(inputRFC){
+            var valueRFC = inputRFC.value;
+            var isValidRFC = validator.validateRFC(valueRFC);
+            setElementValidationClass(inputRFC, isValidRFC); 
+        }
     }
 }
 
