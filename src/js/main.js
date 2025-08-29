@@ -10,10 +10,19 @@ var validator =  new Validator();
 
 function main(){
     //Subscripciones a eventos
-    var buttonSendInfo = document.querySelector('#sendInfo');
+    let buttonSendInfo = document.querySelector('#sendInfo');
     if(buttonSendInfo){ //Validar que existe el botón enviar 
         buttonSendInfo.addEventListener('click', sendInfo)
     }
+
+    let name = document.querySelector('input[name=nombre]');
+    if(name){
+        name.addEventListener('keydown',function(event){
+            let validationProperNameResult = validator.validateProperName(name.value);
+            setElementValidationStatus(name, validationProperNameResult);
+        });
+    }
+
 }
 
 function setElementValidationStatus(input, validationResult) {
