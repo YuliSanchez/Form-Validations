@@ -69,6 +69,21 @@ body {
   color: red;
 }
 
+.data-list {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 4px 12px;
+}
+
+.data-list dt {
+  font-weight: bold;
+  text-align: right;
+}
+
+.data-list dd {
+  margin: 0;
+}
+
 .d-none{
   display: none !important;
 }
