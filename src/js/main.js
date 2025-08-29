@@ -15,69 +15,65 @@ function main(){
     }
 }
 
-function setElementValidationClass(element, isValid){
-    isValid === true ? element.classList.remove('invalid-input') : element.classList.add('invalid-input');
+function setElementValidationStatus(input, validationResult) {
+
+    let messageElement = input.previousElementSibling;
+    if(validationResult.isValid){
+        input.classList.remove('invalid-input');
+        messageElement.innerHTML = "";
+        messageElement.classList.add('d-none');
+    }else{
+        input.classList.add('invalid-input');
+        messageElement.innerHTML = validationResult.message;
+        messageElement.classList.remove('d-none');
+    }
+}
+
+//obtener los inputs de un form y validarlos
+function validateFormBySelector(formSelector) {
+    let currentForm = document.querySelector(formSelector);
+    let isValidForm = true;
+    if (currentForm) {
+        let inputs = currentForm.querySelectorAll('input');
+        inputs.forEach((input) => {
+            let inputType = input.name;
+            switch (inputType) {
+                case 'nombre':
+                case 'apellido':
+                    let validationProperNameResult = validator.validateProperName(input.value);
+                    setElementValidationStatus(input,validationProperNameResult);
+                    isValidForm = isValidForm && validationProperNameResult.isValid;
+                    break;
+                case 'email':
+                    let validationEmailResult = validator.validateEmail(input.value);
+                    setElementValidationStatus(input,validationEmailResult);
+                    isValidForm = isValidForm && validationEmailResult.isValid;
+                    break;
+                case 'curp':
+                    let validationCURPResult = validator.validateCURP(input.value);
+                    setElementValidationStatus(input,validationCURPResult);
+                    isValidForm = isValidForm && validationCURPResult.isValid;
+                    break;
+                case 'rfc':
+                    let validationRFCResult = validator.validateRFC(input.value);
+                    setElementValidationStatus(input,validationRFCResult);
+                    isValidForm = isValidForm && validationRFCResult.isValid;
+                    break;
+            }
+        });
+    }
+
+    return isValidForm;
 }
 
 function sendInfo(){
-    console.log('click');
-    /*La función send tiene la responsabilidad de enviar la información
-      pero tiene que validad la consistencia de la información*/
 
-    //Qué? Validar Formulario
-    //Cómo? Implementar un validador 
-    //Validar que existe el botón de enviar información 
-    /*1.- Obtener los datos/ inputs del formulario
-      2.- Validarlos
-      3.- Evaluar que hacer con el resultado de la validación IsValidForm true|false]*/
+    let isValidForm = validateFormBySelector('.form'); 
+    console.log('isValidForm: ' + isValidForm);
+    if(isValidForm){
 
-    var form = document.querySelector('.form');
-    console.log(form); 
-    if(form){
-        //1
-        var formInputs = document.querySelectorAll("input"); 
-        console.log(formInputs);
-        //Validar los inputs
-        //Validar Nombre: Debe tener por lo menos 3 caracteres y y no contener caracteres especiales
-        var inputName = form.querySelector('input[name=nombre]'); 
-        if(inputName){
-            var valueName = inputName.value;
-            var isValidName = validator.validateProperName(valueName);
-            setElementValidationClass(inputName, isValidName)
-        }
+    }else{
 
-        //Validar Apellido
-        var inputApellido = form.querySelector('input[name=apellido]'); 
-        if(inputApellido){
-            var valueApellido = inputApellido.value;
-            var isValidApellido = validator.validateProperName(valueApellido)
-            setElementValidationClass(inputApellido, isValidApellido); 
-        }
-
-        //Validar Email 
-        var inputEmail = form.querySelector('input[name=email]'); 
-        if(inputEmail){
-            var valueEmail = inputEmail.value;
-            var isValidEmail = validator.validateEmail(valueEmail)
-            setElementValidationClass(inputEmail, isValidEmail); 
-        }
-
-        //Validar Curp
-        var inputCurp = form.querySelector('input[name=curp]'); 
-        if(inputCurp){
-            var valueCurp = inputCurp.value;
-            var isValidCurp = validator.validateCURP(valueCurp);
-            console.log(isValidCurp);
-            setElementValidationClass(inputCurp, isValidCurp); 
-        }
-
-        //Validar RFC
-        var inputRFC = form.querySelector('input[name=rfc]'); 
-        if(inputRFC){
-            var valueRFC = inputRFC.value;
-            var isValidRFC = validator.validateRFC(valueRFC);
-            setElementValidationClass(inputRFC, isValidRFC); 
-        }
     }
 }
 
