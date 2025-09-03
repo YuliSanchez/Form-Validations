@@ -65,6 +65,26 @@ body {
   background-color: #d81b60;
 }
 
+.status-ended{
+    background-color: greenyellow;
+    border: green solid 2px;
+}
+
+.status-todo{
+    background-color: violet;
+    border: purple solid 2px;
+}
+
+.status-inprogress{
+    background-color: skyblue;
+    border: blue solid 2px;
+}
+
+.status-other{
+    background-color: yellow;
+    border:  yellow green 2px;
+}
+
 .form .error-message{
   color: red;
 }

@@ -1,54 +1,64 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Frontend Template</title>
-  <link rel="stylesheet" href="./css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Frontend Template</title>
+    <link rel="stylesheet" href="./css/style.css" />
 </head>
+
 <body>
-  <div class="container">
-    <div class="processing-info d-none">
-      <p>Procesando información, por favor espere.....</p>
-      <dl class="data-list">
-        <dt>Nombre:</dt>
-        <dd id="infoName"></dd>
-        <dt>Apellido:</dt>
-        <dd id="infoLastName"></dd>
-        <dt>Email:</dt>
-        <dd id="infoEmail"></dd>
-        <dt>CURP:</dt>
-        <dd id="infoPersonID"></dd>
-        <dt>RFC:</dt>
-        <dd id="infoTaxID"></dd>
-      </dl>
-      <img height="150" width="150" src="https://usagif.com/wp-content/uploads/gifs/coffee-94.gif" alt="Espere por favor.">
+    <div class="container">
+        <div id="buttons-status">
+            <button class="myapp-btn">To do</button>
+            <button class="myapp-btn">In Progress</button>
+            <button class="myapp-btn">Ended</button>
+            <button class="myapp-btn">Boton</button>
+        </div>
+        <div class="processing-info d-none">
+            <p>Procesando información, por favor espere.....</p>
+            <dl class="data-list">
+                <dt>Nombre:</dt>
+                <dd id="infoName"></dd>
+                <dt>Apellido:</dt>
+                <dd id="infoLastName"></dd>
+                <dt>Email:</dt>
+                <dd id="infoEmail"></dd>
+                <dt>CURP:</dt>
+                <dd id="infoPersonID"></dd>
+                <dt>RFC:</dt>
+                <dd id="infoTaxID"></dd>
+            </dl>
+            <img height="150" width="150" src="https://usagif.com/wp-content/uploads/gifs/coffee-94.gif"
+                alt="Espere por favor.">
+        </div>
+        <div class="form">
+            <h2>Registro</h2>
+            <label for="nombre">Nombre</label>
+            <small class="error-message d-none"></small>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre">
+
+            <label for="apellido">Apellido</label>
+            <small class="error-message d-none"></small>
+            <input type="text" id="apellido" name="apellido" placeholder="Ingresa tu apellido">
+
+            <label for="email">Correo electrónico</label>
+            <small class="error-message d-none"></small>
+            <input type="email" id="email" name="email" placeholder="Ingresa tu email">
+
+            <label for="curp">CURP</label>
+            <small class="error-message d-none"></small>
+            <input type="text" id="curp" name="curp" placeholder="Ingresa tu CURP">
+
+            <label for="rfc">RFC</label>
+            <small class="error-message d-none"></small>
+            <input type="text" id="rfc" name="rfc" placeholder="Ingresa tu RFC">
+
+            <button id="sendInfo">Enviar</button>
+        </div>
     </div>
-    <div class="form">
-      <h2>Registro</h2>
-      <label for="nombre">Nombre</label>
-      <small class="error-message d-none"></small>
-      <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre">
-
-      <label for="apellido">Apellido</label>
-      <small class="error-message d-none"></small>
-      <input type="text" id="apellido" name="apellido" placeholder="Ingresa tu apellido">
-
-      <label for="email">Correo electrónico</label>
-      <small class="error-message d-none"></small>
-      <input type="email" id="email" name="email" placeholder="Ingresa tu email">
-
-      <label for="curp">CURP</label>
-      <small class="error-message d-none"></small>
-      <input type="text" id="curp" name="curp" placeholder="Ingresa tu CURP">
-
-      <label for="rfc">RFC</label>
-      <small class="error-message d-none"></small>
-      <input type="text" id="rfc" name="rfc" placeholder="Ingresa tu RFC">
-
-      <button id="sendInfo">Enviar</button>
-    </div>
-  </div>
-  <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/main.js"></script>
 </body>
+
 </html>

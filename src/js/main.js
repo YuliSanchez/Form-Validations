@@ -5,10 +5,14 @@ console.log(document); //DOM Document Object Model
 console.log(window);
 import {Validator} from "./common/validations.js";
 import {Person} from "./models/person.model.js";
+import {ManageStyleClass} from "./common/manageStyleClass.js";
 
 var validator =  new Validator();
+var manageStyleClass = new ManageStyleClass();
 
 function main(){
+
+    getClassStatus();
     //Subscripciones a eventos
     let buttonSendInfo = document.querySelector('#sendInfo');
     if(buttonSendInfo){ //Validar que existe el botón enviar 
@@ -23,6 +27,18 @@ function main(){
         });
     }
 
+}
+
+function getClassStatus(){
+    let divButtons = document.getElementById('buttons-status');
+    let buttons = divButtons.querySelectorAll("button");
+    
+    buttons.forEach((button)=>{
+        let buttonStatus =button.innerText; 
+        //console.log(buttonStatus);
+        let statusClass = manageStyleClass.getClassStatus(buttonStatus);
+        button.classList.add(statusClass); 
+    })
 }
 
 function setElementValidationStatus(input, validationResult) {
